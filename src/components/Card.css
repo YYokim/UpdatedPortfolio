@@ -1,0 +1,241 @@
+@import 'remixicon/fonts/remixicon.css';
+
+/* Layout */
+.contactss {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    background-color: #0e333e;
+}
+
+.card-wrapper {
+    perspective: 1000px;
+}
+
+/* Flip container */
+.business-card {
+    width: 900px;
+    height: 500px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    animation: transitionIn 0.85s;
+}
+
+/* Flip on hover */
+.card-wrapper:hover .business-card {
+    transform: rotateY(180deg);
+}
+
+/* Front/back shared styles */
+.business-card .front,
+.business-card .back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+/* Front face */
+.business-card .front {
+    background-color: #ffbb90;
+    color: #242424;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.business-card .front img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+}
+
+.business-card .front .company {
+    font-size: 32px;
+    font-weight: 600;
+    margin-top: 16px;
+}
+
+.business-card .front::before {
+    content: "";
+    border-radius: 50%;
+    border: 8px solid #24242420;
+    position: absolute;
+    top: -25%;
+    height: 150%;
+    width: 320px;
+    transform: rotateZ(35deg);
+}
+
+/* Back face */
+.business-card .back {
+    background-color: #242424;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 24px;
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+/* Back image section */
+.business-card .back .image,
+.business-card .back .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.business-card .back .image {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background-color: #ffbb90;
+    color: #242424;
+    align-items: center;
+    padding: 24px;
+}
+
+.business-card .back .image img {
+    width: 312px;
+    height: 312px;
+    object-fit: cover;
+    border: 2px solid #242424;
+    border-radius: 50%;
+    padding: 4px;
+    margin-bottom: 16px;
+}
+
+.business-card .back .image h1 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-block: 8px;
+}
+
+.business-card .back .h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* Info section */
+.business-card .back .info {
+    align-items: flex-start;
+    color: #ffbb90;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    padding: 20px;
+}
+
+/* Optional contact name */
+.business-card .back .info .contact-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+/* Contact items */
+.business-card .back .info .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    font-size: 35px;
+    font-weight: 500;
+    color: #ffbb90;
+    line-height: 1.5;
+    gap: 1px;
+}
+
+/* Contact links */
+.business-card .back .info .contact a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffbb90;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+
+/* Hover effect */
+.business-card .back .info .contact a:hover,
+.business-card .back .info .contact a:hover i {
+    color: #69b239;
+}
+
+/* Icon styles */
+.business-card .back .info .contact i {
+    font-size: 27px;
+    min-width: 24px;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .business-card {
+        margin: 10px;
+    }
+
+    .business-card .front img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .business-card .front .company {
+        font-size: 20px;
+        margin-top: 12px;
+    }
+
+    .business-card .front::before {
+        width: 180px;
+    }
+
+    .business-card .back {
+        grid-template-columns: 1fr;
+    }
+
+    .business-card .back .image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .business-card .back .image h1 {
+        font-size: 20px;
+        margin-block: 8px;
+    }
+
+    .business-card .back .h2 {
+        font-size: 14px;
+    }
+
+    .business-card .back .info .contact {
+        font-size: 16px;
+        gap: 8px;
+    }
+
+    .business-card .back .info .contact i {
+        font-size: 20px;
+    }
+}
+
+/* Entry animation */
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
