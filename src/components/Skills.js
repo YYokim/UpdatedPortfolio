@@ -7,6 +7,7 @@ import ml from "../assests/img/ml.jpg";
 import db from "../assests/img/db.jpg";
 import py from "../assests/img/python.png";
 import bd from "../assests/img/backendlg.svg";
+import django from "../assests/img/django.jpg";
 import colorSharp from "../assests/img/bgp.jpg"
 
 
@@ -47,8 +48,8 @@ export const Skills = () =>{
                                 <h5>Cisco Networking</h5>
                             </div>
                             <div className="item">
-                                <img src={logics} alt="pics"/>
-                                <h5>Logic Circuits</h5>
+                                <img src={django} alt="pics"/>
+                                <h5>Django Framework</h5>
                             </div>
                             <div className="item">
                                 <img src={ml} alt="pics"/>
@@ -66,6 +67,11 @@ export const Skills = () =>{
                                 <img src={bd} alt="pics"/>
                                 <h5>Backend Development</h5>
                             </div>
+                                <div className="item">
+                                <img src={logics} alt="pics"/>
+                                <h5>Logic Circuits</h5>
+                            </div>
+                            
                         </Carousel>
                     </div>
                     </Col>
